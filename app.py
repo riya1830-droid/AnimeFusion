@@ -5,9 +5,11 @@ import pickle
 # Load anime dataset
 anime = pd.read_csv("top_anime_dataset.csv")  # Make sure this CSV has 'name', 'genres', 'image_url' columns
 
-
+import numpy as np
+data = np.load('similarity_compressed.npz')
+similarity = data['similarity']
 # Load similarity matrix
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+#similarity = pickle.load(open('similarity.pkl', 'rb'))
 # Recommend function with NaN handling
 def recommend(selected_genre):
     # Remove rows where genres are NaN
